@@ -1,0 +1,65 @@
+Time Complexity - O(n+m)^2
+Space Complexity - O(n+m)
+
+import java.util.*;
+class Solution{
+    int[] MergeSortedArray(int temp[],int templength)
+    {
+        for(int i=0;i<temp.length;i++)
+        {
+            for(int j=i+1;j<temp.length;j++)
+            {
+                if(temp[i]>temp[j])
+                {
+                    int swap=temp[i];
+                    temp[i]=temp[j];
+                    temp[j] = swap;
+                }
+            }
+        }
+        return temp;
+    }
+    public static void main(String[] args)
+    {
+     Solution obj=new Solution();
+     Scanner sc =new Scanner(System.in);
+     System.out.print("Enter n length: ");
+     int n=sc.nextInt();
+     System.out.print("Enter m lenngth: ");
+     int m=sc.nextInt();
+     int templength=n+m;
+     int tempvar=templength;
+     int tempiter=0;
+     int[] temp=new int[templength];
+     int[] arr1=new int[n];
+     int[] arr2=new int[m];
+     System.out.print("Enter values to array 1 : ");
+     for(int i=0;i<n;i++)
+     {
+         arr1[i]=sc.nextInt();
+         temp[tempiter]=arr1[i];
+         tempiter+=1;
+     }
+     System.out.print("Enter values to array 2 : ");
+     for(int j=0;j<m;j++)
+     {
+         arr2[j]=sc.nextInt();
+         temp[tempiter]=arr2[j];
+         tempiter+=1;
+     }
+     System.out.print("Both array values Without sorting : ");
+     for(int t=0;t<templength;t++)
+     {
+         System.out.print(temp[t]+ " ");
+     }
+    int[] answer=obj.MergeSortedArray(temp,templength);
+    System.out.print("\n");
+    System.out.print("Merged Sorted array : ");
+    for(int a=0;a<answer.length;a++)
+    {
+        System.out.print(answer[a]+ " ");
+    }
+    }
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
